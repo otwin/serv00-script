@@ -41,7 +41,7 @@ save_config() {
     local port=31164
     if [[ ! -f ~/domains/bigice.serv00.net/config.json ]]; then
         uuid=$(generate_uuid)
-        cat <<EOL > ~/domains/$USER.serv00.net/config.json
+        cat <<EOL > ~/domains/bigice.serv00.net/config.json
 {
     "uuid": "$uuid",
     "port": $port
