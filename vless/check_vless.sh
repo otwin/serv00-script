@@ -4,10 +4,6 @@
 GREEN='\033[0;32m'
 NC='\033[0m'  # 恢复默认颜色
 
-# 输出绿色的 "YI XIU"
-output_yi_xiu() {
-}
-
 
 # Function to generate a UUID
 generate_uuid() {
