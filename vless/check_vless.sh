@@ -26,9 +26,9 @@ output_yi_xiu() {
 
 # Function to generate a UUID
 generate_uuid() {
-    uuid = "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
-    echo "$uuid"
-    return
+#    uuid = "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
+#    echo "$uuid"
+#    return
     
     for i in {1..3}; do
         uuid=$(uuidgen)
@@ -58,7 +58,7 @@ generate_uuid() {
 save_config() {
     # local port=$1
     local port=31164
-    if [[ ! -f ~/domains/$USER.serv00.net/vless/config.json ]]; then
+    if [[ ! -f ~/domains/bigice.serv00.net/vless/config.json ]]; then
         uuid=$(generate_uuid)
         cat <<EOL > ~/domains/$USER.serv00.net/vless/config.json
 {
@@ -69,7 +69,7 @@ EOL
         echo "生成config.json文件。"
     else
         # Update the port in config.json if it exists
-        jq --arg port "$port" '.port = ($port | tonumber)' ~/domains/$USER.serv00.net/vless/config.json > ~/domains/$USER.serv00.net/vless/config_tmp.json && mv ~/domains/$USER.serv00.net/vless/config_tmp.json ~/domains/$USER.serv00.net/vless/config.json
+        jq --arg port "$port" '.port = ($port | tonumber)' ~/domains/bigice.serv00.net/vless/config.json > ~/domains/bigice.serv00.net/vless/config_tmp.json && mv ~/domains/$USER.serv00.net/vless/config_tmp.json ~/domains/$USER.serv00.net/vless/config.json
         echo "config.json文件已存在，端口号已更新。"
     fi
 }
@@ -83,22 +83,22 @@ deploy_vless() {
     # 安装依赖
     npm install
     # 启动vless项目
-    ~/.npm-global/bin/pm2 start ~/domains/$USER.serv00.net/vless/app.js --name vless
+    ~/.npm-global/bin/pm2 start ~/domains/bigice.serv00.net/vless/app.js --name vless
     # 保存pm2进程状态
     ~/.npm-global/bin/pm2 save
     # ANSI颜色码
     output_yi_xiu
     echo -e "端口号: ${GREEN}${port}${NC}"
     echo -e "UUID: ${GREEN}${uuid}${NC}"
-    echo -e "域名: ${GREEN}$USER.serv00.net${NC}"
-    echo -e "vless进程维护定时任务脚本: ${GREEN}cd ~/domains/$USER.serv00.net/vless && ./check_vless.sh${NC}"
+    echo -e "域名: ${GREEN}bigice.serv00.net${NC}"
+    echo -e "vless进程维护定时任务脚本: ${GREEN}cd ~/domains/bigice.serv00.net/vless && ./check_vless.sh${NC}"
     echo -e "VLESS节点信息: ${GREEN}vless://${uuid}@$USER.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=$USER.serv00.net&path=/&sni=&fp=&pbk=&sid=#$USER.serv00.vless${NC}"
 }
 
 # 启动pm2 vless进程
 start_pm2_vless_process() {
     echo "正在启动pm2 vless进程..."
-    ~/.npm-global/bin/pm2 start ~/domains/$USER.serv00.net/vless/app.js --name vless
+    ~/.npm-global/bin/pm2 start ~/domains/bigice.serv00.net/vless/app.js --name vless
     echo -e "${GREEN}pm2 vless进程已启动。${NC}"
 }
 # 检查vless的状态
@@ -165,7 +165,7 @@ main() {
             echo -e "UUID: ${uuid}"
             echo -e "Port: ${port}"
             echo -e "域名: $USER.serv00.net"
-            echo -e "VLESS节点信息: vless://${uuid}@$USER.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=$USER.serv00.net&path=/&sni=&fp=&pbk=&sid=#$USER.serv00.vless"
+            echo -e "VLESS节点信息: vless://${uuid}@bigice.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=$USER.serv00.net&path=/&sni=&fp=&pbk=&sid=#$USER.serv00.vless"
 
         else
             echo -e "config.json 文件不存在或格式错误。"
