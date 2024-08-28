@@ -88,7 +88,7 @@ check_pm2_vless_status() {
 # 主函数
 main() {
     local port=31164  # Default port
-    port_provided=true  # Flag to check if port is provided
+    port_provided=false  # Flag to check if port is provided
 
     while getopts ":p:" opt; do
         case $opt in
@@ -113,8 +113,8 @@ main() {
             port=$(jq -r '.port' config.json)
             echo -e "UUID: ${uuid}"
             echo -e "Port: ${port}"
-            echo -e "域名: $USER.serv00.net"
-            echo -e "VLESS节点信息: vless://${uuid}@bigice.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=$USER.serv00.net&path=/&sni=&fp=&pbk=&sid=#$USER.serv00.vless"
+            echo -e "域名: bigice.serv00.net"
+            echo -e "VLESS节点信息: vless://${uuid}@bigice.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=bigice.serv00.net&path=/&sni=&fp=&pbk=&sid=#bigice.serv00.vless"
 
         else
             echo -e "config.json 文件不存在或格式错误。"
