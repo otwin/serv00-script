@@ -76,7 +76,7 @@ check_pm2_vless_status() {
     vless_status=$(~/.npm-global/bin/pm2 describe vless --no-color | grep "status" | awk '{print $4}')
 
     if [[ -n $vless_status && $vless_status == "online" ]]; then
-        
+        check_vless_status
     else
         if [[ -z $vless_status ]]; then
             echo "未找到pm2 vless进程，检查是否有快照..."
