@@ -29,9 +29,9 @@ deploy_vless() {
     # 安装依赖
     npm install --prefix ./vless
     # 进入工作目录
-    cp -r ./vless ~/domains/bigice.serv00.net
+    cp -r ./vless ~/domains/$USER.serv00.net
 
-    echo -e "请执行以下脚本:cd ~/domains/bigice.serv00.net && ./check_vless.sh -p <端口号>"
+    echo -e "请执行以下脚本:cd ~/domains/$USER.serv00.net && ./check_vless.sh -p <端口号>"
 }
 
 # Main function
