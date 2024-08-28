@@ -106,7 +106,7 @@ main() {
         echo "正在安装vless..."
         deploy_vless "$port"
     else
-        echo "没有提供-p参数，跳过vless安装。"
+        echo "vless参数："
         # 读取 config.json 中的 uuid 和 port
         if [[ -f config.json ]]; then
             uuid=$(jq -r '.uuid' config.json)
