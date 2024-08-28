@@ -41,7 +41,7 @@ deploy_vless() {
     echo -e "UUID: ${GREEN}${uuid}${NC}"
     echo -e "域名: ${GREEN}bigice.serv00.net${NC}"
     echo -e "vless进程维护定时任务脚本: ${GREEN}cd ~/domains/bigice.serv00.net && ./check_vless.sh${NC}"
-    echo -e "VLESS节点信息: ${GREEN}vless://${uuid}@$USER.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=$USER.serv00.net&path=/&sni=&fp=&pbk=&sid=#$USER.serv00.vless${NC}"
+    echo -e "VLESS节点信息: ${GREEN}vless://${uuid}@bigice.serv00.net:${port}?flow=&security=none&encryption=none&type=ws&host=bigice.serv00.net&path=/&sni=&fp=&pbk=&sid=#bigice.serv00.vless${NC}"
 }
 
 # 启动pm2 vless进程
