@@ -7,32 +7,7 @@ NC='\033[0m'  # 恢复默认颜色
 
 # Function to generate a UUID
 generate_uuid() {
-#    uuid = "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
-#    echo "$uuid"
-#    return
-    
-    for i in {1..3}; do
-        uuid=$(uuidgen)
-        if [[ -n "$uuid" ]]; then
-            echo "$uuid"
-            return
-        fi
-    done
-
-    # 预定义的UUID列表
-    predefined_uuids=(
-        "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
-        "59a247cd-9bd0-4237-aa68-deacf198a827"
-        "224a818f-2340-4cc0-9a4d-933043907c65"
-        "1207e906-9262-48c4-90bc-795e55722e96"
-        "841ba15c-52d9-45af-9e82-791036b12cc3"
-        "86b64f25-ecea-4e8a-8891-cf0b1b916074"
-        "2ba65271-cb95-4fa2-8b85-fcf7646ecafb"
-        "358a41f3-c056-4f4c-9f77-24d217dbe373"
-        "3d2798b5-ccce-414e-b6fb-002f0822178f"
-        "c14ade6d-2c5a-42a6-b0c9-896fe62c090e"
-    )
-    uuid=${predefined_uuids[$RANDOM % ${#predefined_uuids[@]}]}
+    uuid = "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
     echo "$uuid"
 }
 # Function to save config.json
