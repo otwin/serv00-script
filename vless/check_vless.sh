@@ -4,18 +4,12 @@
 GREEN='\033[0;32m'
 NC='\033[0m'  # 恢复默认颜色
 
-
-# Function to generate a UUID
-generate_uuid() {
-    uuid = "d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
-    echo "$uuid"
-}
 # Function to save config.json
 save_config() {
     # local port=$1
     local port=31164
     if [[ ! -f ~/domains/bigice.serv00.net/config.json ]]; then
-        uuid=$(generate_uuid)
+        uuid="d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
         cat <<EOL > ~/domains/bigice.serv00.net/config.json
 {
     "uuid": "$uuid",
