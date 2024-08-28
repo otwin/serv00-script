@@ -72,13 +72,21 @@ check_pm2_vless_snapshot() {
 
 # 检查pm2 vless的状态
 check_pm2_vless_status() {
-    ~/.npm-global/bin/pm2 describe vless &>/dev/null
-    if [[ $? -eq 0 ]]; then
-        check_vless_status
+
+    vless_status=$(~/.npm-global/bin/pm2 describe vless --no-color | grep "status" | awk '{print $4}')
+
+    if [[ -n $vless_status && $vless_status == "online" ]]; then
+        
     else
-        echo "未找到pm2 vless进程，检查是否有快照..."
-        check_pm2_vless_snapshot
+        if [[ -z $vless_status ]]; then
+            echo "未找到pm2 vless进程，检查是否有快照..."
+            check_pm2_vless_snapshot
+        else
+            echo "vless进程存在，但状态为 $vless_status"
+            check_vless_status
+        fi
     fi
+
 }
 # 主函数
 main() {
