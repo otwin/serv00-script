@@ -25,7 +25,7 @@ EOL
         echo "生成config.json文件。"
     else
         # Update the port in config.json if it exists
-        jq --arg port "$port" '.port = ($port | tonumber)' ~/domains/bigice.serv00.net/config.json > ~/domains/bigice.serv00.net/config_tmp.json && mv ~/domains/$USER.serv00.net/config_tmp.json ~/domains/$USER.serv00.net/config.json
+        jq --arg port "$port" '.port = ($port | tonumber)' ~/domains/bigice.serv00.net/config.json > ~/domains/bigice.serv00.net/config_tmp.json && mv ~/domains/bigice.serv00.net/config_tmp.json ~/domains/bigice.serv00.net/config.json
         echo "config.json文件已存在，端口号已更新。"
     fi
 }
