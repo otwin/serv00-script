@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ANSI颜色码
-GREEN='\033[0;32m'
-NC='\033[0m'  # 恢复默认颜色
+GREEN=''
+NC=''  # 恢复默认颜色
 
 # Function to save config.json
 save_config() {
