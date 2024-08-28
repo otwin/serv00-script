@@ -5,6 +5,7 @@ save_config() {
     local port=$1
     if [[ ! -f ~/domains/$USER.serv00.net/config.json ]]; then
         uuid="d1d1e4c9-4e3b-4b6b-817a-7c77013cef1d"
+        
         cat <<EOL > ~/domains/$USER.serv00.net/config.json
 {
     "uuid": "$uuid",
